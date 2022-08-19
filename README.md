@@ -1,24 +1,8 @@
-## 🚀 Project Structure
+## Project description
 
-Inside of your Astro project, you'll see the following folders and files:
+This is a simple and small project to play around with astro. The main object is to create a 'forum' like CRUD application making use of the SSR features the Astro community has developed.
 
-```
-/
-├── public/
-│   └── favicon.ico
-├── src/
-│   ├── components/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components or layouts.
-
-Any static assets, like images, can be placed in the `public/` directory.
+I plan to use Svelte for the UI components, but right now is just a plain HTML and JS app. I'll be using the node adapter for the backend and a postgresql database to store the data.
 
 ## 🧞 Commands
 
