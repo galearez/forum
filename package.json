@@ -10,6 +10,11 @@
     "astro": "astro"
   },
   "devDependencies": {
+    "@types/pg": "^8.6.5",
     "astro": "^1.0.5"
+  },
+  "dependencies": {
+    "@astrojs/node": "^1.0.0",
+    "pg": "^8.7.3"
   }
 }
