@@ -1,2 +1,25 @@
+---
+const { origin } = Astro.url;
+const postsList: string[] | string = await fetch(`${origin}/api/posts`, {
+    method: "GET",
+})
+    .then((res) => res.json())
+    .then((data) => data)
+    .catch(() => "");
+---
+
 <h1>Forum</h1>
 <a href="/new">Create new post</a>
+{
+    Array.isArray(postsList) &&
+    postsList.length > 0 && (
+        <div>
+            {postsList.map((post) => (
+                <>
+                    <h2>{post[0]}</h2>
+                    <p>{post[1]}</p>
+                </>
+            ))}
+        </div>
+    )
+}
