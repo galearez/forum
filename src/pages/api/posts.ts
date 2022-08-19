@@ -8,7 +8,7 @@ export async function get(): Promise<Response> {
   };
 
   try {
-    const posts = await (await getPool()).query(query);
+    const posts = await getPool().then((res) => res.query(query));
     return new Response(JSON.stringify(posts.rows), { status: 200 });
   } catch {
     return new Response(null, { status: 404 });
@@ -32,7 +32,7 @@ export async function post({ request }: APIContext): Promise<Response> {
   };
 
   try {
-    await (await getPool()).query(query);
+    await getPool().then((res) => res.query(query));
     return Response.redirect('http://localhost:3000/', 301);
   } catch {
     return Response.redirect('http://localhost:3000/new', 307);
