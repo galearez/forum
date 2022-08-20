@@ -9,7 +9,7 @@ const post: any | string = await fetch(`${origin}/api/posts/${id}`, {
     .catch(() => "NOT FOUND");
 ---
 
-<form action="#" method="POST">
+<form action={`/api/posts/${id}?_METHOD=PUT`} method="POST">
     <input type="hidden" name="id" value={post.post_id} />
     <label for="title">Title</label>
     <input type="text" name="title" id="title" value={post.post_title} />
