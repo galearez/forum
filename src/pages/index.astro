@@ -16,8 +16,9 @@ const postsList: string[] | string = await fetch(`${origin}/api/posts`, {
         <div>
             {postsList.map((post) => (
                 <>
-                    <h2>{post[0]}</h2>
-                    <p>{post[1]}</p>
+                    <h2>{post[1]}</h2>
+                    <p>{post[2]}</p>
+                    <a href={`${origin}/p/${post[0]}`}>link</a>
                 </>
             ))}
         </div>

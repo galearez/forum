@@ -1,9 +1,9 @@
-import { getPool } from '../../db';
 import type { APIContext } from 'astro';
+import { getPool } from '../../../db';
 
 export async function get(): Promise<Response> {
   const query = {
-    text: 'SELECT post_title, post_body FROM posts',
+    text: 'SELECT post_id, post_title, post_body FROM posts',
     rowMode: 'array',
   };
 
