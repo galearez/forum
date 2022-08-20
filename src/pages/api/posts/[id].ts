@@ -15,6 +15,22 @@ async function get({ params }: APIContext) {
   }
 }
 
+// this post route isn't supposed to be reached by the user, instead I will use it as a
+// method overwrite function for my PUT route, when the request from a HTML form
+async function post(request: APIContext) {
+  // when working with astro pages we don't have to do this
+  // the Astro.url object is equivalent to the following line of code
+  const url = new URL(request.request.url);
+  //give the value of name, the string arguments must correspond to a url query
+  const method = url.searchParams.get('_METHOD');
+
+  if (method !== null && method.toLowerCase() === 'put') {
+    return put(request);
+  }
+
+  return Response.redirect('http://localhost:3000/', 303);
+}
+
 async function put({ params, request }: APIContext) {
   const body = await request.formData();
   let urlQueries: any = {};
@@ -46,4 +62,4 @@ async function put({ params, request }: APIContext) {
   }
 }
 
-export { get, put };
+export { get, post, put };
