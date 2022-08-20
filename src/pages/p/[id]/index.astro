@@ -12,3 +12,6 @@ const post: any | string = await fetch(`${origin}/api/posts/${id}`, {
 <h1 id="title">{post.post_title}</h1>
 <p id="body">{post.post_body}</p>
 <a href={`/p/${id}/edit`}>edit</a>
+<form action={`/api/posts/${id}?_METHOD=DELETE`} method="POST">
+    <button>delete</button>
+</form>

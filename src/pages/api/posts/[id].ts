@@ -66,4 +66,18 @@ async function put({ params, request }: APIContext) {
   }
 }
 
-export { get, post, put };
+async function _delete({ params }: APIContext) {
+  const query = {
+    text: 'DELETE FROM posts WHERE post_id = $1',
+    values: [params.id] as string[],
+  };
+
+  try {
+    await getPool().then((res) => res.query(query));
+    return Response.redirect('http://localhost:3000/', 301);
+  } catch (error) {
+    return new Response('NOT FOUND', { status: 404 });
+  }
+}
+
+export { get, post, put, _delete as delete };
