@@ -28,6 +28,10 @@ async function post(request: APIContext) {
     return put(request);
   }
 
+  if (method !== null && method.toLowerCase() === 'delete') {
+    return _delete(request);
+  }
+
   return Response.redirect('http://localhost:3000/', 303);
 }
 
